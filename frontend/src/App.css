@@ -1,0 +1,51 @@
+/* App.css */
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.guestbook-entries {
+  display: flex;
+  flex-direction: column;
+}
+
+.entry {
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.message {
+  margin-top: 5px;
+}
