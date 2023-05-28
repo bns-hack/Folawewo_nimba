@@ -1,50 +1,31 @@
 const express = require("express");
-const cors = require("cors");
 const mongoose = require("mongoose")
+const cors = require("cors");
 const bodyParser = require("body-parser");
-const app = express()
+const entryController = require("./controller/entryController");
 
-app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+require("dotenv").config();
+const app = express();
 
-// mongoose.connect('mongodb://localhost/guestbook', { useNewUrlParser: true, useUnifiedTopology: true });
-// mongoose.Promise = global.Promise;
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-const nimbaSchema = new mongoose.Schema({
-    name: String,
-    message: String,
-    date: { type: Date, default: Date.now }
-});
+// Routes
+app.get("/entries", entryController.getEntries);
+app.post("/entries", entryController.createEntry);
 
-const Entry = mongoose.model('Entry', nimbaSchema);
-
-app.get('/entries', (req, res) => {
-    // get all entries
-    Entry.find({})
-        .sort({ date: 'desc' })
-        .exec((err, entries) => {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                res.status(200).send(entries);
-            }
-        });
-});
-
-app.post('/entries', (req, res) => {
-    // create a new entry
-    const newEntry = new Entry(req.body);
-
-    // Save the entry to the database
-    newEntry.save((err, entry) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            res.status(201).send(entry);
-        }
-    });
-});
-
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Database Connected!");
+  })
+  .catch((error) => {
+    console.error("Error connecting to Database:", error);
+  });
+mongoose.Promise = global.Promise;
 
 module.exports = app;
