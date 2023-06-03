@@ -12,29 +12,6 @@ function App() {
     fetchGuestbookEntries();
   }, []);
 
-  // const fetchGuestbookEntries = async () => {
-  //   try {
-  //     const response = await axios.get("/api/guestbook");
-  //     setGuestbookEntries(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   // Create a new guestbook entry
-  //   try {
-  //     const response = await axios.post("/api/guestbook", { name, message });
-  //     setGuestbookEntries([...guestbookEntries, response.data]);
-  //     setName("");
-  //     setMessage("");
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const fetchGuestbookEntries = async () => {
     try {
       const response = await axios.get("http://localhost:80/entries");
@@ -43,10 +20,11 @@ function App() {
       console.error(error);
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
+    // Create a new guestbook entry
     try {
       const response = await axios.post("http://localhost:80/entries", { name, message });
       setGuestbookEntries([...guestbookEntries, response.data]);
@@ -56,7 +34,8 @@ function App() {
       console.error(error);
     }
   };
-  
+
+
 
   return (
     <div className="App">
