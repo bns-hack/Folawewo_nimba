@@ -28,4 +28,3 @@ const createEntry = (req, res) => {
 };
 
 module.exports = { getEntries, createEntry };
-
