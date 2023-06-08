@@ -14,7 +14,7 @@ function App() {
 
   const fetchGuestbookEntries = async () => {
     try {
-      const response = await axios.get("http://localhost:80/entries");
+      const response = await axios.get("https://backend-nimba.bunnyenv.com/entries");
       setGuestbookEntries(response.data);
     } catch (error) {
       console.error(error);
@@ -26,7 +26,7 @@ function App() {
 
     // Create a new guestbook entry
     try {
-      const response = await axios.post("http://localhost:80/entries", { name, message });
+      const response = await axios.post("https://backend-nimba.bunnyenv.com/entries", { name, message });
       setGuestbookEntries([...guestbookEntries, response.data]);
       setName("");
       setMessage("");
