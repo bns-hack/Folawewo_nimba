@@ -43,5 +43,4 @@ const deleteEntry = (req, res) => {
     });
 };
 
-
 module.exports = { getEntries, createEntry, deleteEntry };
