@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const entryController = require("./controller/entryController");
@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 // Routes
 app.get("/entries", entryController.getEntries);
 app.post("/entries", entryController.createEntry);
+app.delete("/entries/:id", entryController.deleteEntry);
 
 mongoose
   .connect(process.env.MONGO_URI, {

@@ -27,4 +27,21 @@ const createEntry = (req, res) => {
     });
 };
 
-module.exports = { getEntries, createEntry };
+// delete an entry /entries/:id
+const deleteEntry = (req, res) => {
+  const entryId = req.params.id;
+
+  Entry.findByIdAndDelete(entryId)
+    .then((deletedEntry) => {
+      if (!deletedEntry) {
+        return res.status(404).send("Entry not found");
+      }
+      res.status(200).send("Entry deleted successfully");
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+};
+
+
+module.exports = { getEntries, createEntry, deleteEntry };
