@@ -49,3 +49,16 @@ button {
 .message {
   margin-top: 5px;
 }
+
+.delete-button {
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #e63c3c;
+}
