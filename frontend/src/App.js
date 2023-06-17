@@ -43,7 +43,9 @@ function App() {
   const handleDelete = async (entryId) => {
     // Delete a guestbook entry
     try {
-      await axios.delete(`https://backend-nimba.bunnyenv.com/entries/:id`);
+      await axios.delete(
+        `https://backend-nimba.bunnyenv.com/entries/${entryId}`
+      );
       const updatedEntries = guestbookEntries.filter(
         (entry) => entry._id !== entryId
       );
