@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Guestbook</h1>
+      <h1>Nimba Guestbook</h1>
 
       <form onSubmit={handleSubmit}>
         <input
