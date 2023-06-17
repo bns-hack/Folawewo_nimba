@@ -45,7 +45,7 @@ function App() {
     try {
       await axios.delete(`https://backend-nimba.bunnyenv.com/entries/:id`);
       const updatedEntries = guestbookEntries.filter(
-        (entry) => entry.id !== entryId
+        (entry) => entry._id !== entryId
       );
       setGuestbookEntries(updatedEntries);
     } catch (error) {
@@ -76,12 +76,12 @@ function App() {
 
       <div className="guestbook-entries">
         {guestbookEntries.map((entry) => (
-          <div key={entry.id} className="entry">
+          <div key={entry._id} className="entry">
             <p className="name">{entry.name}</p>
             <p className="message">{entry.message}</p>
             <button
               className="delete-button"
-              onClick={() => handleDelete(entry.id)}
+              onClick={() => handleDelete(entry._id)}
             >
               Delete
             </button>
