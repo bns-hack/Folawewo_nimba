@@ -1,0 +1,37 @@
+kind: Environment
+name: nimba-env
+type: primary
+urlHandle: nimba
+environmentVariables:
+  MONGO_URI: "<<BNS_SECRET>>"
+components:
+  - kind: Application
+    name: backend
+    gitRepo: "https://github.com/Folawewo/nimba.git"
+    gitBranch: main
+    gitApplicationPath: backend
+    dockerCompose:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      ports:
+        - "80:80"
+    hosts:
+      - hostname: "backend-{{ env.base_domain }}"
+        path: /
+        servicePort: 80
+  - kind: Application
+    name: frontend
+    gitRepo: "https://github.com/Folawewo/nimba.git"
+    gitBranch: main
+    gitApplicationPath: frontend
+    dockerCompose:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile
+      ports:
+        - "3000:3000"
+    hosts:
+      - hostname: "frontend-{{ env.base_domain }}"
+        path: /
+        servicePort: 3000
