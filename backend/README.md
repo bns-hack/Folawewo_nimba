@@ -24,7 +24,6 @@ Clone the repository:
 
 ```
 git clone https://github.com/Folawewo/nimba.git
-
 ```
 
 ## Install dependencies:
