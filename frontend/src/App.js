@@ -43,9 +43,11 @@ function App() {
   const handleDelete = async (entryId) => {
     // Delete a guestbook entry
     try {
-      await axios.delete(`https://backend-nimba.bunnyenv.com/entries/:id`);
+      await axios.delete(
+        `https://backend-nimba.bunnyenv.com/entries/${entryId}`
+      );
       const updatedEntries = guestbookEntries.filter(
-        (entry) => entry.id !== entryId
+        (entry) => entry._id !== entryId
       );
       setGuestbookEntries(updatedEntries);
     } catch (error) {
@@ -55,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Guestbook</h1>
+      <h1>Nimba Guestbook</h1>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -76,12 +78,12 @@ function App() {
 
       <div className="guestbook-entries">
         {guestbookEntries.map((entry) => (
-          <div key={entry.id} className="entry">
+          <div key={entry._id} className="entry">
             <p className="name">{entry.name}</p>
             <p className="message">{entry.message}</p>
             <button
               className="delete-button"
-              onClick={() => handleDelete(entry.id)}
+              onClick={() => handleDelete(entry._id)}
             >
               Delete
             </button>
