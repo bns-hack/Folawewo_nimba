@@ -1,5 +1,5 @@
 
-# Nimba Environment
+# Nimba Bunnyshell Template
 
 This is a Bunnyshell environment configuration for Nimba template, which consists of a backend and frontend application.
 
