@@ -1,5 +1,5 @@
 name: Express.js (NodeJS) + React + MongoDB (Nimba)
-description: Nimba is a guest book app for Bunnyshell Stack Jam Hackathon, composed out of one frontend, one backend service and one database.
+description: Nimba is an Entry Management System that allows users to create and manage entries. It provides RESTful APIs for retrieving entries, creating new entries, and deleting entries. Composed out of one frontend, one backend service and one database.
 tags:
   - nodejs
   - express
