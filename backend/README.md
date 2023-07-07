@@ -13,7 +13,7 @@ Nimba is an Entry Management System that allows users to create and manage entri
 
 * Node.js: A JavaScript runtime environment for executing server-side code.
 * Express.js: A web application framework for Node.js that simplifies the creation of server-side applications.
-* MongoDB: A NoSQL database for storing and retrieving data.
+* MongoDB: A oSQL database for storing and retrieving data.
 * Mongoose: An Object Data Modeling (ODM) library for MongoDB and Node.js.
 * CORS: A middleware for handling Cross-Origin Resource Sharing.
 * Body Parser: A middleware for parsing HTTP request bodies.
