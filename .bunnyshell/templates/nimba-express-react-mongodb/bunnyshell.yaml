@@ -1,9 +1,8 @@
 kind: Environment
 name: nimba-env
 type: primary
-urlHandle: nimba
 environmentVariables:
-  MONGO_URI: "<<BNS_SECRET>>"
+  MONGO_URI: "missing"
 components:
   - kind: Application
     name: backend
