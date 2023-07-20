@@ -7,7 +7,7 @@ environmentVariables:
 components:
   - kind: Application
     name: backend
-    gitRepo: "https://github.com/Folawewo/nimba.git"
+    gitRepo: "https://github.com/bns-hack/Folawewo_nimba.git"
     gitBranch: main
     gitApplicationPath: backend
     dockerCompose:
@@ -22,7 +22,7 @@ components:
         servicePort: 80
   - kind: Application
     name: frontend
-    gitRepo: "https://github.com/Folawewo/nimba.git"
+    gitRepo: "https://github.com/bns-hack/Folawewo_nimba.git"
     gitBranch: main
     gitApplicationPath: frontend
     dockerCompose:
